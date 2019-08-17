@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login V3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="assets/login/css/util.css">
+
+</head>
+
+<body>
+
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('../assets/login/images/bg-02.jpg');">
+            <div class="wrap-login100">
+                <form ngNativeValidate class="login100-form validate-form">
+                    <span class="login100-form-title p-b-34 p-t-27">
+						Crear cuenta
+                    </span>
+                    <br>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter compania">
+                        <label class="label">{{errornamecompania}}</label>
+                        <input class="input100" type="text" name="namecompany" [(ngModel)]="compania.name" placeholder="Digite nombre de la empresa" autocomplete="off" required>
+                        <span class="focus-input100" data-placeholder="&#xf36f;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter username">
+                        <label class="label">{{errorusername}}</label>
+                        <input class="input100" type="text" name="username" [(ngModel)]="user.username" placeholder="Digite nombre de usuario" autocomplete="off">
+                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter email">
+                        <label class="label">{{erroremail}}</label>
+                        <input class="input100" type="email" [(ngModel)]="user.email" name="email" placeholder="Digite su Email" autocomplete="off" required>
+                        <span class="focus-input100" data-placeholder="&#xf1fe;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <label class="label">{{errorpassword}}</label>
+                        <input class="input100" type="password" name="password" [(ngModel)]="user.password" placeholder="Digite su Password" required>
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    </div>
+
+                    <div class="text-center p-t-90">
+                        <span style="color: rgb(73, 73, 73)"> Al guardar sus datos usted acepta nuestros terminos y condiciones</span>
+                    </div>
+                    <br>
+                    <div class="container-login100-form-btn">
+
+                        <button class="login100-form-btn" (click)="register()" [disabled]="btndisabled">  
+							Registrar {{btndisabled}}
+						</button>
+                    </div>
+                    <div class="text-center p-t-90">
+                        <a class="txt1" href="#" [routerLink]="['/login']">
+                               ¿Ya tienes una cuenta? Inicia sesión <b>AQUÍ</b>
+                            </a>
+                    </div>
+
+                </form>
+                <app-progress *ngIf="statussendform"></app-progress>
+            </div>
+        </div>
+    </div>
+
+    <div id="dropDownSelect1">
+
+    </div>
+
+</body>
+
+</html>
