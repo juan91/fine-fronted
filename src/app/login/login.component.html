@@ -8,8 +8,6 @@
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 
-    <link rel="stylesheet" type="text/css" href="assets/login/css/util.css">
-
 </head>
 
 <body>
@@ -52,8 +50,9 @@
                         <button class="login100-form-btn" (click)="login()">
 							Ingresar
                         </button>
-                        <app-progress></app-progress>
+                        <app-progress *ngIf="statussendform"></app-progress>
                     </div>
+                    <br>
                     <div class="text-center p-t-90">
                         <a class="txt1" href="#" [routerLink]="['/register']">
                                ¿No tienes una cuenta? Crea una cuenta <b>AQUÍ</b>

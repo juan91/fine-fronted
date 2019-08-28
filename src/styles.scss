@@ -3,3 +3,17 @@ body {
     padding: 0;
     margin: 0;
 }
+
+table {
+    border: red;
+}
+
+thead {
+    background-color: rgba(65, 65, 65, 0.425);
+    color: white
+}
+
+input[type=text] {
+    border: 2px solid rgba(93, 127, 238, 0.24);
+    border-radius: 4px;
+}

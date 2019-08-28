@@ -1,0 +1,40 @@
+<div class="col-md-8 col-sm-12">
+    <form ngNativeValidate (ngSubmit)="changePassword()">
+        <div class="form-group row">
+            <label for="l" class="col-sm ">Email:</label>
+            <div class="col-sm">
+                <input type="text" readonly class="form-control-plaintext pl-2" [(ngModel)]="user.email" name="email">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="" class="col-sm ">Nombre de usuario:</label>
+            <div class="col-sm">
+                <input type="text" readonly class="form-control-plaintext pl-2" [(ngModel)]="user.username" name="username">
+            </div>
+        </div>
+        <hr>
+        <p class="text-center text-primary"><b>Cambiar contraseña</b></p>
+        <div class="form-group row">
+            <label for="" class="col-sm ">Password actual:</label>
+            <div class="col-sm">
+                <input type="password" class="form-control" [(ngModel)]="datachangepass.oldpass" name="oldpass" placeholder="Password actual" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="" class="col-sm ">Nueva Password:</label>
+            <div class="col-sm">
+                <input type="password" class="form-control" [(ngModel)]="datachangepass.newpass" name="newpass" placeholder="Nueva Password" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="" class="col-sm ">Confirme Password:</label>
+            <div class="col-sm">
+                <input type="password" class="form-control" [(ngModel)]="datachangepass.confirmpass" name="confirmpass" placeholder="Confirme Password" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success align-content-center" [disabled]="loading">
+                <i [ngClass]="{'fas fa-circle-notch fa-spin': loading,'':!loading}"></i>
+            Guardar</button>
+    </form>
+    <simple-notifications></simple-notifications>
+</div>

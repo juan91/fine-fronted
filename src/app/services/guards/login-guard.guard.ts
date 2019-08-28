@@ -9,10 +9,11 @@ export class LoginGuardGuard implements CanActivate {
   constructor(public router: Router, private authservice: AuthService) {}
 
   canActivate() {
+    
     if (this.authservice.isLogin()) {
       return true;
     }
-    console.log("bloqueado pro");
+   
     this.router.navigate(["/login"]);
     return false;
   }

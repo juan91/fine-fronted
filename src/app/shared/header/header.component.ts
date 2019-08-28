@@ -7,10 +7,17 @@ import { AuthService } from "src/app/services/services.index";
   styles: []
 })
 export class HeaderComponent implements OnInit {
-  constructor(public authservice: AuthService) {}
+  
+  loaddatauser:any = {}
+
+  constructor(public authservice: AuthService) {
+
+    this.loaddatauser  = this.authservice.loaddatauser();
+
+  }
 
   ngOnInit() {}
-
+  
   logout() {
     this.authservice.logout();
   }

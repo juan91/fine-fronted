@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    document.body.scrollTop = 0;
+    console.log("yes");
+    
+  }
 
   ngOnInit() {
   }

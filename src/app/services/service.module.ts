@@ -6,7 +6,8 @@ import {
   UserService,
   AuthService,
   RegisterService,
-  LoginGuardGuard
+  LoginGuardGuard,
+  HttheadersService
  } from "./services.index";
 import { HttpClientModule } from '@angular/common/http';
 
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserService,
     AuthService,
     RegisterService,
-    LoginGuardGuard
+    LoginGuardGuard,
+    HttheadersService
   ],
   declarations: [],
   imports: [
