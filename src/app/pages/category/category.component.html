@@ -1,43 +1,52 @@
-<div class="row">
+<div class="row  mb-5">
+    <div class="col-sm-12 mb-4">
+        <app-progress *ngIf="status"></app-progress>
+    </div>
     <div class="col-sm-6">
-        <form>
+        <form ngNativeValidate>
             <div class="form-group">
                 <label for="exampleInputEmail1">Nombre categoría:</label>
-                <input type="text" class="form-control" placeholder="Ingrese nombre de la categoría" required>
+                <input type="text" [(ngModel)]="category.name" name="name" class="form-control" placeholder="Ingrese nombre de la categoría" required>
             </div>
-            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="submit" (click)="createCategory()" class="btn btn-success" [disabled]="status">Guardar</button>
         </form>
     </div>
     <div class="col-sm-6">
+
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+            </div>
+            <input type="text" class="form-control" (keyup)="search()" [(ngModel)]="term" placeholder="Ingrese termino de busqueda" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha creación</th>
+                    <th scope="col">::</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                <tr app-categoryitem [item]="item" *ngFor="let item of categories let i = index" (canceleditevent)="canceledit()" (editevent)="edit($event)">
                 </tr>
             </tbody>
         </table>
+
+        <div class="well" *ngIf="pages.total > 1">
+            <div class="btn-group">
+                <button disabled class="btn btn-default">Pág {{pages.current}} de {{pages.total}}</button>
+                <button disabled class="btn btn-default">Items {{items.begin}} - {{items.end}} de {{items.total}}</button>
+            </div>
+            <br>
+            <div class="btn-group pull-right">
+                <button class="btn btn-primary" [disabled]="!pages.hasPrev" (click)="prev()">Anterior</button>
+                <button class="btn btn-info" [disabled]="!pages.hasNext" (click)="next()"> Siguiente</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
     </div>
 </div>
+<simple-notifications></simple-notifications>

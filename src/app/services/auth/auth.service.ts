@@ -56,7 +56,14 @@ export class AuthService {
 
   loaddatauser(){
    let datauser = localStorage.getItem("data_user");
-    return JSON.parse(datauser);
+      
+    if(!datauser || datauser === null){
+      this.logout();
+      
+    }else{
+      return JSON.parse(datauser);
+    }
+    
   }
   
 }

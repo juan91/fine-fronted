@@ -15,6 +15,10 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsComponent } from './products/products.component';
 import { CategoryComponent } from './category/category.component';
+import { CategoryitemComponent } from './category/categoryitem/categoryitem.component';
+import { FocusModule } from 'angular2-focus';
+
+
 
 @NgModule({
   
@@ -25,7 +29,8 @@ import { CategoryComponent } from './category/category.component';
         Graficas1Component,
         ProfileComponent,
         ProductsComponent,
-        CategoryComponent        
+        CategoryComponent,
+        CategoryitemComponent        
     ],
 
     exports: [
@@ -43,7 +48,8 @@ import { CategoryComponent } from './category/category.component';
         SimpleNotificationsModule.forRoot({
             position: ["top", "center"],
         }),
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        FocusModule.forRoot()
     ]
 })
 

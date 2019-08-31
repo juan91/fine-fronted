@@ -9,7 +9,8 @@ export class HttheadersService {
 
   constructor(public authservice: AuthService) { }
 
-  gethttpheaders(){
+  gethttpheaders(filter?){
+
     if(!this.authservice.isLogin()){
        this.authservice.logout();
        return;     
@@ -20,7 +21,8 @@ export class HttheadersService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         authorization: token
-      })
+      }),
+      params:filter
     };
 
     return httpOptions;

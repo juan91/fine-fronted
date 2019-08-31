@@ -3,13 +3,14 @@ import { HttpClient } from "@angular/common/http";
 import { reject, resolve } from "q";
 import { URL_API } from "src/app/config/config";
 import { HttheadersService } from "../httheaders.service";
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class SidebarService {
   
   url: string;
 
-  constructor(private http: HttpClient, public headers: HttheadersService) {
+  constructor(private http: HttpClient, public headers: HttheadersService, public auth:AuthService) {
     this.url = URL_API;
   }
 
@@ -22,8 +23,10 @@ export class SidebarService {
             resolve(resp);
           },
           err => {
-            console.log(err);
-            resolve({ error: err });
+            if(err.status === 401){
+              this.auth.logout();
+            }
+            reject(err);
           }
         );
     });

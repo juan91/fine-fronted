@@ -21,18 +21,30 @@ export class ProductService {
     return new Promise ((resolve,reject) => {
       
       this.http.post(this.URL_API+"/category",data, this.headers.gethttpheaders()).subscribe((result) => {
-      
-          console.log(result);
-          resolve(result);
+          resolve(result)
       }, err =>{
-          console.log(err);
-          
+          reject(err);
       });
         
     });
     
   }
+  
+  getAllCaterory(filter:any){
+      
+    return new Promise((resolve,reject) => {
+    
+      this.http.get(this.URL_API+"/category",this.headers.gethttpheaders(filter)).subscribe((result:any) => {
+          
+        resolve(result);
+        
+      }, err =>{
+        reject(err);
+      });
+        
+    });
 
+  }
 
 
 
