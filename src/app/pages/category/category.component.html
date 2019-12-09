@@ -29,7 +29,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr app-categoryitem [item]="item" *ngFor="let item of categories let i = index" (canceleditevent)="canceledit()" (editevent)="edit($event)">
+                <tr app-categoryitem [item]="item" *ngFor="let item of categories let i = index" (canceleditevent)="canceledit()" (editevent)="edit($event)" (deleteevent)="delete($event)">
+                </tr>
+                <tr *ngIf="categories.length === 0" class="text-center">
+                    <td colspan="3">No hay registros</td>
                 </tr>
             </tbody>
         </table>

@@ -8,9 +8,9 @@ export class NotifiService {
 
   constructor(private _service: NotificationsService) { }
 
-  onSuccess(titulo:string, message:string){
+  onSuccess(message:string){
   
-    this._service.success(titulo,message,{  
+    this._service.success("Muy bien!",message,{  
       timeOut: 5000,   
       showProgressBar: false,
       pauseOnHover: true,
@@ -20,9 +20,9 @@ export class NotifiService {
 
   }
 
-  onError(titulo:string, message:string){
+  onError(message:string){
   
-    this._service.error(titulo,message,{  
+    this._service.error("Error!",message,{  
       timeOut: 5000,   
       showProgressBar: false,
       pauseOnHover: true,
@@ -32,9 +32,9 @@ export class NotifiService {
 
   }
 
-  onInfo(titulo:string, message:string){
+  onInfo(message:string){
   
-    this._service.info(titulo,message,{  
+    this._service.info("Información!",message,{  
       timeOut: 5000,   
       showProgressBar: false,
       pauseOnHover: true,
@@ -44,9 +44,9 @@ export class NotifiService {
 
   }
 
-  onWarning(titulo:string, message:string){
+  onWarning(message:string){
   
-    this._service.warn(titulo,message,{  
+    this._service.warn("Algo salió mal!",message,{  
       timeOut: 5000,   
       showProgressBar: false,
       pauseOnHover: true,

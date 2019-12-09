@@ -42,22 +42,22 @@ export class ProfileComponent implements OnInit {
     this.userservice.changePassword(this.datachangepass).then((resp:any) => {
       
       if(resp.success){
-        this._noti.onSuccess("Muy bien!","Contraseña actualizada con éxito");
+        this._noti.onSuccess("Contraseña actualizada con éxito");
         this.datachangepass = {};
       }else{
         if(resp.errors){
-          this._noti.onWarning("Algo salió mal!",resp.errors[0]);
+          this._noti.onWarning(resp.errors[0]);
         }
 
         if( Object.keys(resp.errfor).length !== 0 ){
-          this._noti.onWarning("Algo salió mal!",resp.errfor[0]);
+          this._noti.onWarning(resp.errfor[0]);
         }
         
       }      
     
       this.loading = false;
     },err => {
-      this._noti.onError("Error!","error :"+ err);
+      this._noti.onError("error :"+ err);
     })    
   }
 

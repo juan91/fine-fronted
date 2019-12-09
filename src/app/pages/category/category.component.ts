@@ -3,6 +3,7 @@ import { ProductService } from "src/app/services/product/product.service";
 import { NotifiService } from "src/app/services/notifi.service";
 import { AuthService } from "src/app/services/services.index";
 import { filter } from "rxjs/operators";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: "app-category",
@@ -39,12 +40,12 @@ export class CategoryComponent implements OnInit {
     this.productoservices.createCategory(this.category).then(
       (result: any) => {
         if (result.success) {
-          this.categories.unshift(result.category);
+          this.getAllCategory();
           this.category = {};
-          this.noti.onSuccess("Muy bien!", "Categoria registrada con éxito");
+          this.noti.onSuccess("Categoria registrada con éxito");
         } else {
           if (result.errors) {
-            this.noti.onWarning("Algo salió mal!", result.errors[0]);
+            this.noti.onWarning(result.errors[0]);
           }
         }
         this.status = false;
@@ -52,7 +53,7 @@ export class CategoryComponent implements OnInit {
       err => {
         this.status = false;
         if (err.status == 401) {
-          this.noti.onError("ERROR!", "Algo salió mal");
+          this.noti.onError("Algo salió mal");
 
           this.auth.logout();
         }
@@ -64,14 +65,11 @@ export class CategoryComponent implements OnInit {
     this.status = true;
     this.productoservices.getAllCaterory(this.filters).then(
       (result: any) => {
-        console.log(result);
         if (result.success) {
           this.fillData(result.result);
-         
         } else {
           if (result.errors) {
             this.noti.onWarning(
-              "Algo salio mal!",
               "No se puede acceder a las categorias: " + result.errors[0]
             );
           }
@@ -104,9 +102,42 @@ export class CategoryComponent implements OnInit {
   }
 
   edit(data:any){
-    console.log("ok");
+     
+    this.productoservices.EditCategory(data).then((res:any) => {
+      console.log(res);
+      if(res.success){
+      this.noti.onSuccess("Categoría editada con éxito");
+      }else{
+        if (res.errors) {
+          this.noti.onWarning(res.errors[0]);
+        }
+      }
+    }, err => {
+       console.log(err);
+  
+    })
     
-    console.log(data);
+  }
+
+  delete(data:any){
+    
+    this.productoservices.deleteCategory(data).then((res:any) => {
+      
+      if(res.success){
+        this.noti.onSuccess("Categoría eliminada con éxito!");
+        this.getAllCategory();
+      }else{
+        if (res.errors) {
+          this.noti.onWarning(res.errors[0]);
+        }
+      }
+
+    }, err => {
+    
+      console.log(err);
+      
+
+    });
     
   }
 

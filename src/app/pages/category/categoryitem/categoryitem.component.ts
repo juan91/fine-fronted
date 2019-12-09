@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: '[app-categoryitem]',
@@ -30,10 +31,28 @@ export class CategoryitemComponent implements OnInit {
   }
 
   edit(){
-    this.changed = false;
-    console.log("ok");
-    
+    this.changed = false;  
     this.editevent.emit(this.item);
+  }
+
+  delete(item:any){
+
+    Swal.fire({
+      title: 'Eliminar categoría',
+      text: "¿Está seguro de eliminar: "+item.name+"?",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.changed = false;  
+        this.deleteevent.emit(this.item);
+      }
+    })
+  
   }
 
 }

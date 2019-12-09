@@ -29,6 +29,33 @@ export class ProductService {
     });
     
   }
+
+  EditCategory(data:any){
+
+    return new Promise ((resolve,reject) => {
+      
+      this.http.put(this.URL_API+"/category",data, this.headers.gethttpheaders()).subscribe((result) => {
+          resolve(result)
+      }, err =>{
+          reject(err);
+      });
+        
+    });
+    
+  }
+
+  deleteCategory(data:any){
+    return new Promise ((resolve,reject) => {
+      
+      this.http.delete(this.URL_API+"/category/"+data.id,this.headers.gethttpheaders()).subscribe((result) => {
+          resolve(result)
+      }, err =>{
+          reject(err);
+      });
+        
+    });
+  }
+
   
   getAllCaterory(filter:any){
       

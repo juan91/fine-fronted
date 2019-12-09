@@ -2,7 +2,7 @@
 <td *ngIf="!changed">{{item.createdAt | date:'medium' }}</td>
 <td *ngIf="!changed">
     <button class="btn btn-info btn-sm mr-2" title="Actividades" (click)="changed = !changed"><i class="fa fa-edit" aria-hidden="true"></i></button>
-    <button class="btn btn-danger btn-sm" title="Actividades"><i class="fa fa-trash" aria-hidden="true"></i></button>
+    <button class="btn btn-danger btn-sm" title="Actividades" (click)="delete(item)"><i class="fa fa-trash" aria-hidden="true"></i></button>
 </td>
 
 <td *ngIf="changed"><input class="form-control" type="text" [(ngModel)]="item.name" focus="true"></td>

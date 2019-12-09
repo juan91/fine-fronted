@@ -41,6 +41,7 @@
 							Recordarme
 						</label>
                     </div>
+                    <app-progress *ngIf="statussendform"></app-progress>
                     <div class="contact100-form-checkbox">
                         <a class="txt1" href="#">
                                     Olvidaste tu contraseña?
@@ -50,8 +51,9 @@
                         <button class="login100-form-btn" (click)="login()">
 							Ingresar
                         </button>
-                        <app-progress *ngIf="statussendform"></app-progress>
+
                     </div>
+
                     <br>
                     <div class="text-center p-t-90">
                         <a class="txt1" href="#" [routerLink]="['/register']">
