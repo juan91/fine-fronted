@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "homepage": "https://juan91.github.io/fine-fronted",
     "scripts": {
-        "predeploy": "npm run build",
+        "predeploy": "npm run build && echo 'ingeniogaleras.com' > ./dist/bubuk-front/CNAME ",
         "deploy": "gh-pages -d docs/",
         "ng": "ng",
         "start": "ng serve",
