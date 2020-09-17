@@ -1,7 +1,10 @@
 {
     "name": "finne-front",
     "version": "0.0.0",
+    "homepage": "https://juan91.github.io/fine-fronted",
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "hg-pages -d build",
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
@@ -19,6 +22,7 @@
         "@angular/platform-browser": "~8.0.0",
         "@angular/platform-browser-dynamic": "~8.0.0",
         "@angular/router": "~8.0.0",
+        "@babel/compat-data": "^7.8.0",
         "angular2-focus": "^1.1.4",
         "angular2-notifications": "^2.0.0",
         "gh-pages": "^3.1.0",
@@ -28,7 +32,7 @@
         "zone.js": "~0.9.1"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "^0.1001.1",
+        "@angular-devkit/build-angular": "^0.803.24",
         "@angular/cli": "~8.0.0",
         "@angular/compiler-cli": "~8.0.0",
         "@angular/language-service": "~8.0.0",
