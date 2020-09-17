@@ -4,7 +4,7 @@
     "homepage": "https://juan91.github.io/fine-fronted",
     "scripts": {
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist/bubuk-front",
+        "deploy": "gh-pages -d docs/",
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
