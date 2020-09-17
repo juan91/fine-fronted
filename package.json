@@ -1,7 +1,7 @@
 {
     "name": "finne-front",
     "version": "0.0.0",
-    "homepage": "https://juan91.github.io/fine-fronted",
+    "homepage": "https://ingeniogaleras.com",
     "scripts": {
         "predeploy": "npm run build && echo ingeniogaleras.com > ./dist/bubuk-front/CNAME ",
         "deploy": "gh-pages -d docs/",
